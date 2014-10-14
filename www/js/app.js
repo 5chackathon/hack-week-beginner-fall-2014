@@ -45,12 +45,12 @@ $(document).on("pageshow", "#addNote", function(e, ui) {
 		$(this).attr("disabled","disabled").button("refresh");
  
 		var noteText = $("#noteText").val();
-		if(noteText == '') return;
+		if(noteText === '') return;
  
 		/*
 		A bit complex - we have to handle an optional pic save
 		*/
-		if(imagedata != "") {
+		if(imagedata !== "") {
 			var parseFile = new Parse.File("mypic.jpg", {base64:imagedata});
 			console.log(parseFile);
 				parseFile.save().then(function() {
@@ -89,7 +89,7 @@ $(document).on("pageshow", "#addNote", function(e, ui) {
 		e.preventDefault();
 		navigator.camera.getPicture(gotPic, failHandler, 
 			{quality:50, destinationType:navigator.camera.DestinationType.DATA_URL,
-			 sourceType:navigator.camera.PictureSourceType.PHOTOLIBRARY});
+			sourceType:navigator.camera.PictureSourceType.PHOTOLIBRARY});
 	});
 	
 	function gotPic(data) {
