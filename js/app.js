@@ -1,19 +1,19 @@
-var parseAPPID = "supersecret";
-var parseJSID = "mybankpinis1234";
- 
+var parseAPPID ="nWaGdXUhchnfgMeTeBC6d5pZZChOcEWM8Dl0FSwj";
+var parseJSID = "lvlI3tjmZ36VNA4dTTuilqJQCHwPyvRnocbvK4eI";
+
 //Initialize Parse
 Parse.initialize(parseAPPID,parseJSID);
- 
+
 var NoteOb = Parse.Object.extend("Note");
- 
+
 $(document).on("pageshow", "#home", function(e, ui) {
-  $.mobile.loading("show");
- 
+	$.mobile.loading("show");
+
 	var query = new Parse.Query(NoteOb);
 	query.limit(10);
 	query.descending("createdAt");
- 
-	query.find({
+
+	query.find({ 
 		success:function(results) {
 			$.mobile.loading("hide");
 			var s = "";
@@ -31,22 +31,22 @@ $(document).on("pageshow", "#home", function(e, ui) {
 			$("#home div[data-role=content]").html(s);
 		},error:function(e) {
 			$.mobile.loading("hide");
- 
+
 		}
 	});
 });
- 
+
 $(document).on("pageshow", "#addNote", function(e, ui) {
- 
+
 	var imagedata = "";
- 
+
 	$("#saveNoteBtn").on("touchend", function(e) {
 		e.preventDefault();
 		$(this).attr("disabled","disabled").button("refresh");
- 
+
 		var noteText = $("#noteText").val();
 		if(noteText === '') return;
- 
+
 		/*
 		A bit complex - we have to handle an optional pic save
 		*/
@@ -69,7 +69,7 @@ $(document).on("pageshow", "#addNote", function(e, ui) {
 					console.log("Error");
 					console.log(error);
 				});
- 
+
 		} else {
 			var note = new NoteOb();
 			note.set("text",noteText);
@@ -81,10 +81,10 @@ $(document).on("pageshow", "#addNote", function(e, ui) {
 				}
 			});
 			cleanUp();
- 
+
 		}
 	});
- 
+
 	$("#takePicBtn").on("click", function(e) {
 		e.preventDefault();
 		navigator.camera.getPicture(gotPic, failHandler, 
@@ -103,12 +103,12 @@ $(document).on("pageshow", "#addNote", function(e, ui) {
 		alert(e);
 		console.log(e.toString());
 	}
- 
+
 	function cleanUp() {
 		imagedata = "";
 		$("#saveNoteBtn").removeAttr("disabled").button("refresh");
 		$("#noteText").val("");
 		$("#takePicBtn").text("Add Pic").button("refresh");
 	}
- 
+
 });

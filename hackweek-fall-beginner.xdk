@@ -2,14 +2,15 @@
   "project": {
     "projectSettingsVersion": "1.1",
     "creationData": {
-      "type": "Blank Project",
+      "type": "Import",
       "projectTypeName": "com.intel.xdk.projecttype.jsapp",
-      "src": "blankproject",
-      "projectGuid": "62095df4-d7f4-451a-9ace-528f713a2957",
-      "lastModifiedDate": 1413261670834,
-      "creationDate": 1413261670756
+      "src": "",
+      "projectGuid": "fd59f1b0-c3f9-4657-b280-63b2b91bf249",
+      "lastModifiedDate": 1413266185828,
+      "creationDate": 1413266185781
     },
-    "sourceDirectory": "www",
+    "sourceDirectory": "",
+    "cordovaPluginsDirectory": "plugins",
     "startFile": "index.html",
     "projectFiles": {},
     "projectDirectories": {},
@@ -29,8 +30,6 @@
         }
       }
     ],
-    "serviceMethods": [],
-    "cordovaPluginsDirectory": "plugins",
     "cordovaPlugins": [
       {
         "id": "org.apache.cordova.device",
@@ -47,6 +46,7 @@
         "paramvals": {}
       }
     ],
+    "serviceMethods": [],
     "buildConfigurations": {
       "Android": {
         "platform_": "android",
@@ -57,8 +57,8 @@
           "android-targetSdkVersion": "19"
         },
         "isActive_": true,
-        "appName_": "asdfsdf",
-        "appID_": "xdk.intel.blank.project",
+        "appName_": "OriginalNoteApp",
+        "appID_": "not.yet.specified",
         "appAccess_": "*",
         "icons_": [],
         "splashes_": [],
@@ -66,11 +66,9 @@
         "addlPermissions_": "",
         "excludedLibraries_": "",
         "cordovaCLIVersion_": "3.3",
-        "crosswalkVersion_": "stable",
         "appVersion_": "0.0.1",
-        "appDescription_": "Universal init code for Intel XDK and Cordova device ready detection, as well as within browser.",
-        "appAuthor_": "",
-        "appVersionCode_": "1"
+        "appVersionCode_": "1",
+        "crosswalkVersion_": "stable"
       },
       "Android-Crosswalk": {
         "platform_": "android",
@@ -81,8 +79,8 @@
           "android-targetSdkVersion": "19"
         },
         "isActive_": true,
-        "appName_": "asdfsdf",
-        "appID_": "xdk.intel.blank.project",
+        "appName_": "OriginalNoteApp",
+        "appID_": "not.yet.specified",
         "appAccess_": "*",
         "icons_": [],
         "splashes_": [],
@@ -90,11 +88,9 @@
         "addlPermissions_": "",
         "excludedLibraries_": "",
         "cordovaCLIVersion_": "3.3",
-        "crosswalkVersion_": "stable",
         "appVersion_": "0.0.1",
-        "appDescription_": "Universal init code for Intel XDK and Cordova device ready detection, as well as within browser.",
-        "appAuthor_": "",
-        "appVersionCode_": "1"
+        "appVersionCode_": "1",
+        "crosswalkVersion_": "stable"
       },
       "iOS": {
         "platform_": "ios",
@@ -105,48 +101,7 @@
           "ios-configuration": "adhoc"
         },
         "isActive_": true,
-        "appName_": "asdfsdf",
-        "appID_": "xdk.intel.blank.project",
-        "appAccess_": "*",
-        "icons_": [],
-        "splashes_": [],
-        "iosProvs_": [],
-        "addlPermissions_": "",
-        "excludedLibraries_": "",
-        "cordovaCLIVersion_": "3.3",
-        "crosswalkVersion_": "stable",
-        "appVersion_": "0.0.1",
-        "appDescription_": "Universal init code for Intel XDK and Cordova device ready detection, as well as within browser."
-      },
-      "Windows8": {
-        "platform_": "windows8",
-        "runtime_": "Cordova 3.x",
-        "name_": "Windows8",
-        "preferences_": {
-          "windows-publisher-display-name": "",
-          "windows-publisher-id": ""
-        },
-        "isActive_": true,
-        "appName_": "asdfsdf",
-        "appID_": "xdk.intel.blank.project",
-        "appAccess_": "*",
-        "icons_": [],
-        "splashes_": [],
-        "iosProvs_": [],
-        "addlPermissions_": "",
-        "excludedLibraries_": "",
-        "cordovaCLIVersion_": "3.3",
-        "crosswalkVersion_": "stable",
-        "appVersion_": "0.0.0.1",
-        "appDescription_": "Universal init code for Intel XDK and Cordova device ready detection, as well as within browser."
-      },
-      "WindowsPhone8": {
-        "platform_": "wp8",
-        "runtime_": "Cordova 3.x",
-        "name_": "WindowsPhone8",
-        "preferences_": {},
-        "isActive_": true,
-        "appName_": "asdfsdf",
+        "appName_": "OriginalNoteApp",
         "appID_": "not.yet.specified",
         "appAccess_": "*",
         "icons_": [],
@@ -155,8 +110,41 @@
         "addlPermissions_": "",
         "excludedLibraries_": "",
         "cordovaCLIVersion_": "3.3",
-        "crosswalkVersion_": "stable",
-        "appVersion_": "1.0.0.0"
+        "appVersion_": "0.0.1"
+      },
+      "Windows8": {
+        "platform_": "windows8",
+        "runtime_": "Cordova 3.x",
+        "name_": "Windows8",
+        "preferences_": {},
+        "isActive_": true,
+        "appName_": "OriginalNoteApp",
+        "appID_": "not.yet.specified",
+        "appAccess_": "*",
+        "icons_": [],
+        "splashes_": [],
+        "iosProvs_": [],
+        "addlPermissions_": "",
+        "excludedLibraries_": "",
+        "cordovaCLIVersion_": "3.3",
+        "appVersion_": "0.0.0.1"
+      },
+      "WindowsPhone8": {
+        "platform_": "wp8",
+        "runtime_": "Cordova 3.x",
+        "name_": "WindowsPhone8",
+        "preferences_": {},
+        "isActive_": true,
+        "appName_": "OriginalNoteApp",
+        "appID_": "not.yet.specified",
+        "appAccess_": "*",
+        "icons_": [],
+        "splashes_": [],
+        "iosProvs_": [],
+        "addlPermissions_": "",
+        "excludedLibraries_": "",
+        "cordovaCLIVersion_": "3.3",
+        "appVersion_": "0.0.0.1"
       }
     }
   }
