@@ -41,8 +41,8 @@ $(document).on("pageshow", "#addNote", function(e, ui) {
 	var imagedata = "";
 
 	$("#saveNoteBtn").on("touchend", function(e) {
-		e.preventDefault();
-		$(this).attr("disabled","disabled").button("refresh");
+		//e.preventDefault();
+		//$(this).attr("disabled","disabled").button("refresh");
 
 		var noteText = $("#noteText").val();
 		if(noteText === '') return;
@@ -66,10 +66,7 @@ $(document).on("pageshow", "#addNote", function(e, ui) {
 	}
 
 	function cleanUp() {
-		imagedata = "";
-		$("#saveNoteBtn").removeAttr("disabled").button("refresh");
 		$("#noteText").val("");
-		$("#takePicBtn").text("Add Pic").button("refresh");
 	}
 
 });
