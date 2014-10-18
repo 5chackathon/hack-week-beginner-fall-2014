@@ -47,30 +47,6 @@ $(document).on("pageshow", "#addNote", function(e, ui) {
 		var noteText = $("#noteText").val();
 		if(noteText === '') return;
 
-		/*
-		A bit complex - we have to handle an optional pic save
-		*/
-		if(imagedata !== "") {
-			var parseFile = new Parse.File("mypic.jpg", {base64:imagedata});
-			console.log(parseFile);
-				parseFile.save().then(function() {
-					var note = new NoteOb();
-					note.set("text",noteText);
-					note.set("picture",parseFile);
-					note.save(null, {
-						success:function(ob) {
-							$.mobile.changePage("#home");
-						}, error:function(e) {
-							console.log("Oh crap", e);
-						}
-					});
-					cleanUp();
-				}, function(error) {
-					console.log("Error");
-					console.log(error);
-				});
-
-		} else {
 			var note = new NoteOb();
 			note.set("text",noteText);
 			note.save(null, {
@@ -81,8 +57,6 @@ $(document).on("pageshow", "#addNote", function(e, ui) {
 				}
 			});
 			cleanUp();
-
-		}
 	});
 
 	$("#takePicBtn").on("click", function(e) {
