@@ -58,19 +58,6 @@ $(document).on("pageshow", "#addNote", function(e, ui) {
 			});
 			cleanUp();
 	});
-
-	$("#takePicBtn").on("click", function(e) {
-		e.preventDefault();
-		navigator.camera.getPicture(gotPic, failHandler, 
-			{quality:50, destinationType:navigator.camera.DestinationType.DATA_URL,
-			sourceType:navigator.camera.PictureSourceType.PHOTOLIBRARY});
-	});
-	
-	function gotPic(data) {
-		console.log('got here');
-		imagedata = data;
-		$("#takePicBtn").text("Picture Taken!").button("refresh");
-	}
 	
 	function failHandler(e) {
 		alert("ErrorFromC");
