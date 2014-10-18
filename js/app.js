@@ -6,6 +6,7 @@ Parse.initialize(parseAPPID,parseJSID);
 
 var NoteOb = Parse.Object.extend("Note");
 
+
 $(document).on("pageshow", "#home", function(e, ui) {
 	$.mobile.loading("show");
 
@@ -19,16 +20,24 @@ $(document).on("pageshow", "#home", function(e, ui) {
 			var s = "";
 			for(var i=0; i<results.length; i++) {
 				//Lame - should be using a template
-				s += "<p>";
-				s += "<h3>Note " + results[i].createdAt + "</h3>";
-				s += results[i].get("text");
-				var pic = results[i].get("picture");
-				if(pic) {
-					s += "<br/><img src='" + pic.url() + "'>";
-				}
-				s += "</p>";
+				s += "<h3 class='note'>Note " + results[i].createdAt;
+				s += "<div class='noteContent'>" + results[i].get("text") + "</div>";
+				s += "</h3>";
 			}
 			$("#home div[data-role=content]").html(s);
+			
+			// add event handler to link a note to its page
+			// this code is pretty musy and unintuitive, we should
+			//simplify it
+			$(".note").click(function(){
+				var clicked = $(this);
+				localStorage.text = clicked.find(".noteContent").text();
+				console.log("set to " + clicked.find(".noteContent").text());
+				// link to new page
+				console.log(localStorage.text);
+				$("#note .content").html(localStorage.text);
+				window.location.href = "#note";
+			});
 		},error:function(e) {
 			$.mobile.loading("hide");
 
@@ -69,4 +78,8 @@ $(document).on("pageshow", "#addNote", function(e, ui) {
 		$("#noteText").val("");
 	}
 
+});
+
+$(document).on("pageshow", "#note", function(e, ui) {
+	console.log("yay");
 });

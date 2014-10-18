@@ -22,3 +22,7 @@ button {
 	*/
 	height: 300px !important;
 }
+
+.noteContent{
+	display: none;
+}
