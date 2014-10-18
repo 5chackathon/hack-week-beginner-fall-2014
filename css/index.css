@@ -6,11 +6,19 @@ body {
 
 textarea {
 	width:90%;
-	height:70px;
+	height:300px;
+	resize: none;
 }
 
 button {
 	width:90%;
 	height:50px;
 	font-size: 1.8em;
+}
+
+#noteText{
+	/* This neeeds to be !important because we have to
+		overwride the JQuery mobile textarea settings
+	*/
+	height: 300px !important;
 }
