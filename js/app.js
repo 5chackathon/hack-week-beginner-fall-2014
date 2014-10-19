@@ -22,6 +22,7 @@ $(document).on("pageshow", "#home", function(e, ui) {
 				//Lame - should be using a template
 				s += "<h3 class='note'>" + results[i].get("title");
 				s += "<div class='noteContent'>" + results[i].get("text") + "</div>";
+				s += "<div class='title'>" + results[i].get("title") + "</div>";
 				s += "</h3>";
 			}
 			$("#home div[data-role=content]").html(s);
@@ -32,10 +33,9 @@ $(document).on("pageshow", "#home", function(e, ui) {
 			$(".note").click(function(){
 				var clicked = $(this);
 				localStorage.text = clicked.find(".noteContent").text();
-				console.log("set to " + clicked.find(".noteContent").text());
-				// link to new page
-				console.log(localStorage.text);
+				localStorage.title = clicked.find(".title").text();
 				$("#note .content").html(localStorage.text);
+				$("#note .noteTitle").html("<h3>" + localStorage.title + "</h3>");
 				window.location.href = "#note";
 			});
 		},error:function(e) {
@@ -83,6 +83,6 @@ $(document).on("pageshow", "#addNote", function(e, ui) {
 
 });
 
-$(document).on("pageshow", "#note", function(e, ui) {
-	console.log("yay");
-});
+// $(document).on("pageshow", "#note", function(e, ui) {
+// 	console.log("yay");
+// });

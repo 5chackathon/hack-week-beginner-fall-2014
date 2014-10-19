@@ -26,3 +26,7 @@ button {
 .noteContent{
 	display: none;
 }
+
+.title {
+	display: none;
+}
