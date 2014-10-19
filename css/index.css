@@ -20,7 +20,7 @@ button {
 	/* This neeeds to be !important because we have to
 		overwride the JQuery mobile textarea settings
 	*/
-	height: 300px !important;
+	height: 250px !important;
 }
 
 .noteContent{
