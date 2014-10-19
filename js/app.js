@@ -20,7 +20,7 @@ $(document).on("pageshow", "#home", function(e, ui) {
 			var s = "";
 			for(var i=0; i<results.length; i++) {
 				//Lame - should be using a template
-				s += "<h3 class='note'>Note " + results[i].createdAt;
+				s += "<h3 class='note'>" + results[i].get("title");
 				s += "<div class='noteContent'>" + results[i].get("text") + "</div>";
 				s += "</h3>";
 			}
@@ -54,10 +54,12 @@ $(document).on("pageshow", "#addNote", function(e, ui) {
 		//$(this).attr("disabled","disabled").button("refresh");
 
 		var noteText = $("#noteText").val();
+		var noteTitle = $("#noteTitle").val();
 		if(noteText === '') return;
 
 			var note = new NoteOb();
 			note.set("text",noteText);
+			note.set("title", noteTitle);
 			note.save(null, {
 				success:function(ob) {
 					$.mobile.changePage("#home");
@@ -76,6 +78,7 @@ $(document).on("pageshow", "#addNote", function(e, ui) {
 
 	function cleanUp() {
 		$("#noteText").val("");
+		$("#noteTitle").val("");
 	}
 
 });
