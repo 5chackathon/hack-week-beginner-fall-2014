@@ -1,11 +1,10 @@
 var parseAPPID ="nWaGdXUhchnfgMeTeBC6d5pZZChOcEWM8Dl0FSwj";
 var parseJSID = "lvlI3tjmZ36VNA4dTTuilqJQCHwPyvRnocbvK4eI";
-
+var $content = $("<div></div>");
 //Initialize Parse
 Parse.initialize(parseAPPID,parseJSID);
 
 var NoteOb = Parse.Object.extend("Note");
-
 
 $(document).on("pageshow", "#home", function(e, ui) {
 	$.mobile.loading("show");
@@ -14,18 +13,30 @@ $(document).on("pageshow", "#home", function(e, ui) {
 	query.limit(10);
 	query.descending("createdAt");
 
+	
 	query.find({ 
 		success:function(results) {
 			$.mobile.loading("hide");
+			$notes = $("<div></div>");
 			var s = "";
+			console.log(results.length);
 			for(var i=0; i<results.length; i++) {
-				//Lame - should be using a template
-				s += "<h3 class='note'>" + results[i].get("title");
-				s += "<div class='noteContent'>" + results[i].get("text") + "</div>";
-				s += "<div class='title'>" + results[i].get("title") + "</div>";
-				s += "</h3>";
+				$title = $("<h3></h3>")
+						.addClass("note")
+						.text(results[i].get("title"));
+				$hiddenContent = $("<div></div>")
+						.addClass("noteContent")
+						.text(results[i].get("text"));
+				$hiddenTitle = $("<div></div>")
+						.addClass("title")
+						.text(results[i].get("text"));
+				$title.append($hiddenContent);
+				$title.append($hiddenTitle);
+
+				$content.append($title);
 			}
-			$("#home div[data-role=content]").html(s);
+			
+			$("#home div[data-role=content]").append($content);
 			
 			// add event handler to link a note to its page
 			// this code is pretty musy and unintuitive, we should
