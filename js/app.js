@@ -1,6 +1,6 @@
 var parseAPPID ="nWaGdXUhchnfgMeTeBC6d5pZZChOcEWM8Dl0FSwj";
 var parseJSID = "lvlI3tjmZ36VNA4dTTuilqJQCHwPyvRnocbvK4eI";
-var $content = $("<div></div>");
+
 //Initialize Parse
 Parse.initialize(parseAPPID,parseJSID);
 
@@ -17,8 +17,11 @@ $(document).on("pageshow", "#home", function(e, ui) {
 	query.find({ 
 		success:function(results) {
 			$.mobile.loading("hide");
-			$notes = $("<div></div>");
-			var s = "";
+			var $content = $("<div></div>");
+
+			// clean out the content
+			$("#home div[data-role=content]").html("");
+
 			console.log(results.length);
 			for(var i=0; i<results.length; i++) {
 				$title = $("<h3></h3>")
@@ -39,8 +42,8 @@ $(document).on("pageshow", "#home", function(e, ui) {
 			$("#home div[data-role=content]").append($content);
 			
 			// add event handler to link a note to its page
-			// this code is pretty musy and unintuitive, we should
-			//simplify it
+			// here i'm using local storage to pass variables between different views
+			//TODO: should we use a templating system?
 			$(".note").click(function(){
 				var clicked = $(this);
 				localStorage.text = clicked.find(".noteContent").text();
@@ -58,9 +61,7 @@ $(document).on("pageshow", "#home", function(e, ui) {
 
 $(document).on("pageshow", "#addNote", function(e, ui) {
 
-	var imagedata = "";
-
-	$("#saveNoteBtn").on("touchend", function(e) {
+	$("#saveNoteBtn").on("click", function(e) {
 		//e.preventDefault();
 		//$(this).attr("disabled","disabled").button("refresh");
 
@@ -93,7 +94,3 @@ $(document).on("pageshow", "#addNote", function(e, ui) {
 	}
 
 });
-
-// $(document).on("pageshow", "#note", function(e, ui) {
-// 	console.log("yay");
-// });
