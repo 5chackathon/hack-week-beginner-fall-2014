@@ -50,6 +50,8 @@ $(document).on("pageshow", "#home", function(e, ui) {
 				localStorage.title = clicked.find(".title").text();
 				$("#note .content").html(localStorage.text);
 				$("#note .noteTitle").html("<h3>" + localStorage.title + "</h3>");
+				
+				//go to the note page
 				window.location.href = "#note";
 			});
 		},error:function(e) {
