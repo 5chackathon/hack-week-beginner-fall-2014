@@ -78,10 +78,19 @@
 
         </div>
 
-        <script src="js/hammer.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/jquery-ui.min.js"></script>
+    <script type="text/javascript" src="js/touch-punch.min.js"></script>
+    <script src="js/hammer.js"></script>
     <script src="js/swipeout.js"></script>
     <script>
       new SwipeOut(document.getElementById("list"));
+
+      $(function() {
+                $( "#list" ).sortable({
+                    delay: 900
+                });
+                $( "#list" ).disableSelection();
+        });
     </script>
     </body>
 </html>

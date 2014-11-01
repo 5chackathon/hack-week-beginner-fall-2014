@@ -44,10 +44,6 @@ $(document).on("pageshow", "#home", function(e, ui) {
 				$("#list").append($innerContent)
 				// $content.append($innerContent);
 			}
-		
-
-			// var list = document.getElementById("list");
-			// new SwipeOut(list);
 
 			$("#list li").on("delete", function(evt) {
   				console.log("sdf");
