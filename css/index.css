@@ -23,10 +23,42 @@ button {
 	height: 250px !important;
 }
 
-.noteContent{
-	display: none;
+.swipe-out .delete-btn {
+  padding: 6px 8px;
+  background-color: red;
+  color: #fff;
+  text-shadow: none;
+  font-size: 16px;
+  font-family: "Helvetica Neue", Arial, Helvetica, sans-serif;
 }
 
-.title {
-	display: none;
+body {
+	margin: 0;
+	padding: 0;
+	font-family: "Helvetica Neue", Arial, Helvetica, sans-serif;
+	font-size: 14px;
+	line-height: 1.2;
+}
+
+ul {
+	margin: 0;
+	padding: 0;
+}
+
+li {
+	border-bottom: solid 1px rgb(224,224,224);
+	padding: 20px;
+}
+
+/* email client */
+li {
+	padding: 0px 25px 5px 33px;
+}
+
+h1 {
+	font-size: 18px;
+}
+
+h1, li p {
+	margin: 0;
 }

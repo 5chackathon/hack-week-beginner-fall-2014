@@ -20,39 +20,37 @@ $(document).on("pageshow", "#home", function(e, ui) {
 			var $content = $("<div></div>");
 
 			// clean out the content
-			$("#home div[data-role=content]").html("");
+			$(".list").html("");
 
 			console.log(results.length);
 			for(var i=0; i<results.length; i++) {
-				$title = $("<h3></h3>")
-						.addClass("note")
-						.text(results[i].get("title"));
-				$hiddenContent = $("<div></div>")
+				$innerContent = $("<li></li>");
+				var titleText;
+				if (results[i].get("title")) {
+					titleText = results[i].get("title");
+				} else {
+					titleText = "Untitled"
+				}
+
+				$title = $("<h1></h1>")
+						.text(titleText);
+				$hiddenContent = $("<p></p>")
 						.addClass("noteContent")
 						.text(results[i].get("text"));
-				$hiddenTitle = $("<div></div>")
-						.addClass("title")
-						.text(results[i].get("text"));
-				$title.append($hiddenContent);
-				$title.append($hiddenTitle);
-
-				$content.append($title);
-			}
-			
-			$("#home div[data-role=content]").append($content);
-			
-			// add event handler to link a note to its page
-			// here i'm using local storage to pass variables between different views
-			//TODO: should we use a templating system?
-			$(".note").click(function(){
-				var clicked = $(this);
-				localStorage.text = clicked.find(".noteContent").text();
-				localStorage.title = clicked.find(".title").text();
-				$("#note .content").html(localStorage.text);
-				$("#note .noteTitle").html("<h3>" + localStorage.title + "</h3>");
 				
-				//go to the note page
-				window.location.href = "#note";
+				$innerContent.append($title);
+				$innerContent.append($hiddenContent);
+
+				$("#list").append($innerContent)
+				// $content.append($innerContent);
+			}
+		
+
+			// var list = document.getElementById("list");
+			// new SwipeOut(list);
+
+			$("#list li").on("delete", function(evt) {
+  				console.log("sdf");
 			});
 		},error:function(e) {
 			$.mobile.loading("hide");
