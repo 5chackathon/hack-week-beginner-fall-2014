@@ -8,8 +8,8 @@ $("#saveNoteBtn").click(function() {
 
 		// create li
 		$item = $("<li></li>");
-		$title = $("<h1></h1>").text(noteText);
-		$content = $("<p></p>").text(noteTitle);
+		$title = $("<h1></h1>").text(noteTitle);
+		$content = $("<p></p>").text(noteText);
 		$button = $("<div></div>").addClass("button remove").text("Remove");
 
 		$item.append($title);
@@ -17,7 +17,7 @@ $("#saveNoteBtn").click(function() {
 		$item.append($button);
 		$("#list").prepend($item);
 
-		// we need to readd trigger
+		// we need to recreate trigger
 		$(".remove").click(function(){
             $(this).parent().remove();
         });
