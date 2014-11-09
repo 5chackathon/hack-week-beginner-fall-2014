@@ -89,12 +89,21 @@
         </div>
     </div>
 </div>
-
-     <script type="text/javascript">
+    <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/jquery-ui.min.js"></script>
+    <script type="text/javascript" src="js/touch-punch.min.js"></script>
+    <script type="text/javascript">
         $(".remove").click(function(){
-            console.log($(this));
             $(this).parent().remove();
         });
-     </script>
+
+        $(function() {
+                $( "#list" ).sortable({
+                    delay: 900
+                });
+                $( "#list" ).disableSelection();
+        });
+    </script>
+
+
 </body>
 </html>
