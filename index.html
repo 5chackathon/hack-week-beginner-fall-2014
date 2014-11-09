@@ -1,90 +1,100 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="utf-8">
-        <title>5C Hackathon App</title>
-        <meta name = "format-detection" content = "telephone=no"/>
-        <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
+<head>
+    <title>Single View App template</title>
+<!--
+    This template can be used for simple application that has just a main view, for applications like Flash light app or Calculator app.
+-->    
+    <meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=0;" />
+    
+    <link rel="stylesheet" type="text/css" href="http://cdn.app-framework-software.intel.com/2.1/af.ui.css" />
+    <link rel="stylesheet" type="text/css" href="http://cdn.app-framework-software.intel.com/2.1/icons.css" />
 
-         <link rel="stylesheet" type="text/css" href="http://code.jquery.com/mobile/git/jquery.mobile-git.css"> 
-        <link rel="stylesheet" type="text/css" href="css/index.css">
-		<script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
-        <script src="http://ajax.googleapis.com/ajax/libs/jquerymobile/1.4.3/jquery.mobile.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="css/new.css">
 
-        <script type="text/javascript" src="cordova.js"></script>
-        <script src="js/parse-1.2.8.min.js"></script>
+    <script src="http://code.jquery.com/jquery-2.1.0.min.js"></script>
+    <script type="text/javascript" src="js/jq.appframework.js"></script>
+    <script type="text/javascript" charset="utf-8" src="http://cdn.app-framework-software.intel.com/2.1/appframework.ui.min.js"></script>
 
-        <script src="js/app.js"></script>
-    </head>
-    <body>
-
-    	<div id="home">
-
-    		<div data-role="header" data-position="fixed">
-    			<a href="#addNote" data-icon="plus" data-iconpos="notext" class="ui-btn-right">Add</a>
-    			<h1>Notebook</h1>
-    		</div>
-
-    		<div>
-                <ul id="list">
-                </ul>
-    		</div>
-
-
-    	</div>
-
-    	<div data-role="page" id="addNote">
-
-    		<div data-role="header">
-    			<a href="#home" data-icon="home" data-iconpos="notext">Home</a>
-    			<h1>Notebook</h1>
-    		</div>
-
-    		<div>
-                <h2>Add Note</h2>
-                <input type="text" id="noteTitle" value="Untitled">
-                <textarea id="noteText"></textarea>
-                <button id="saveNoteBtn">Save</button>
-    		</div>
-
-    	</div>
-
-        <div id="note">
-             <div data-role="header">
-                <a href="#home" data-icon="home" data-iconpos="notext">Home</a>
-                <h1>Page</h1>
-            </div>
-
-            <div>
-                <div class="noteTitle">
-
-                </div>
-
-                <div class="noteText content">
-
-                </div>
-            </div>
-
-        </div>
-
-    <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/jquery-ui.min.js"></script>
-
-    <!-- Javascript needed for swipe to delete feature -->
-    <script type="text/javascript" src="js/touch-punch.min.js"></script>
-    <script src="js/hammer.js"></script>
-    <script src="js/swipeout.js"></script>
-
-    <script>
-      // Create swipeout to delete any elemeent
-      new SwipeOut(document.getElementById("list"));
-
-      // Add ability to drag and drop lists
-      $(function() {
-                $( "#list" ).sortable({
-                    delay: 900
-                });
-                $( "#list" ).disableSelection();
+    <script>   
+        $.ui.autoLaunch = false;        
+                
+        $(document).ready(function(){
+            $.ui.launch();
         });
     </script>
-    </body>
+</head>
+<body> 
+<div id="afui">
+    <div id="header">
+        <!-- <a id="backButton" href="javascript:;" class="button">Back</a> -->
+        <h1>Notebook</h1>
+        <a style="float:right" id="new" href="#page2" class="button">New</a>
+    </div>
+    <div id="content">
+        <div class="panel" id="page1"  data-footer="none" selected="true">
+            <div>
+                <ul id="list">
+                    <li>
+                        <span>
+                            <h1>Test</h1>
+                            <p>Some content</p>
+                        </span>
+                        <div class="button remove">Remove</div>
+                    </li>
+                    <li>
+                         <span>
+                            <h1>Test</h1>
+                            <p>Some content</p>
+                        </span>
+                        <div class="button remove">Remove</div>
+                    </li>
+                    <li>
+                         <span>
+                            <h1>Test</h1>
+                            <p>Some content</p>
+                        </span>
+                        <div class="button remove">Remove</div>
+                    </li>
+                    <li>
+                         <span>
+                            <h1>Test</h1>
+                            <p>Some content</p>
+                        </span>
+                        <div class="button remove">Remove</div>
+                    </li>
+                    <li>
+                         <span>
+                            <h1>Test</h1>
+                            <p>Some content</p>
+                        </span>
+                        <div class="button remove">Remove</div>
+                    </li>
+                    <li>
+                         <span>
+                            <h1>Test</h1>
+                            <p>Some content</p>
+                        </span>
+                        <div class="button remove">Remove</div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="panel" id="page2" data-footer="none">
+            <h2>Add Note</h2>
+            <input type="text" id="noteTitle" value="Untitled">
+            <textarea id="noteText"></textarea>
+            <div id="saveNoteBtn" class="button">Save</div>
+        </div>
+    </div>
+</div>
+
+     <script type="text/javascript">
+        $(".remove").click(function(){
+            console.log($(this));
+            $(this).parent().remove();
+        });
+     </script>
+</body>
 </html>
