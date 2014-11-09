@@ -49,6 +49,7 @@ ul {
 li {
 	border-bottom: solid 1px rgb(224,224,224);
 	padding: 20px;
+	list-style-type: none;
 }
 
 /* email client */
