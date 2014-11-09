@@ -26,6 +26,7 @@ $("#saveNoteBtn").click(function() {
 });
 
 	function cleanUp() {
+		alert("Note successfully added!");
 		$("#noteText").val("");
 		$("#noteTitle").val("");
 	}
