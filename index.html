@@ -3,23 +3,18 @@
   <head>
     <title>Notebook App</title>
     <meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=0;" />
-
     <link rel="stylesheet" type="text/css" href="http://cdn.app-framework-software.intel.com/2.1/af.ui.css" />
     <link rel="stylesheet" type="text/css" href="http://cdn.app-framework-software.intel.com/2.1/icons.css" />
-
     <link rel="stylesheet" type="text/css" href="css/new.css">
-
-
     <script src="http://code.jquery.com/jquery-2.1.0.min.js"></script>
     <script type="text/javascript" src="js/jq.appframework.js"></script>
-
     <script type="text/javascript" charset="utf-8" src="http://cdn.app-framework-software.intel.com/2.1/appframework.ui.min.js"></script>
-
     <script>
+      // Don't launch the ui until the rest of the app has loaded.
       $.ui.autoLaunch = false;
 
       $(document).ready(function(){
-          $.ui.launch();
+        $.ui.launch();
       });
     </script>
   </head>
@@ -33,26 +28,7 @@
         <div class="panel" id="page1"  data-footer="none" selected="true">
           <div>
             <ul id="list">
-              <li>
-                <h1>Test</h1>
-                <p>This is some content. blah blah blah blah.</p>
-                <div class="button remove">Remove</div>
-              </li>
-              <li>
-                <h1>Hello</h1>
-                <p>Hello World</p>
-                <div class="button remove">Remove</div>
-              </li>
-              <li>
-                <h1>Test</h1>
-                <p>Test 123</p>
-                <div class="button remove">Remove</div>
-              </li>
-              <li>
-                <h1>Test</h1>
-                <p>Some content</p>
-                <div class="button remove">Remove</div>
-              </li>
+              <!-- No notes yet -->
             </ul>
           </div>
         </div>

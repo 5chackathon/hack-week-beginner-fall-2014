@@ -1,45 +1,99 @@
 /*
- * Initialize list.
+ * Save the current notes in the list to local storage.
  */
-$(function() {
+function saveNotes() {
+	// Retrieve all the notes from the list.
+	var notes = [];
+
+	$("#list li").each(function(index) {
+		var note = {
+			title: $(this).find(".title").text(),
+			content: $(this).find(".content").text()
+		}
+
+		notes.push(note);
+	});
+
+	localStorage.setItem("notes", JSON.stringify(notes));
+}
+
+/*
+ * Initialize list. This function will only run when the app loads for the
+ * first time.
+ */
+$(document).ready(function() {
+	var notes = localStorage.getItem("notes");
+
+	// If there is nothing in local storage, create a note array and save
+	// a default note to it.
+	if (notes === null) {
+		notes = [];
+
+		var note = {
+			title: "My First Note",
+			content: "Add a note by clicking the 'New' button!"
+		}
+
+		notes.push(note);
+	} else {
+		notes = JSON.parse(notes);
+	}
+
+	// Add all the notes to the list.
+	for (var i = 0; i < notes.length; i++) {
+		addNote(notes[i]);
+	}
+
 	$("#list").sortable({
-		delay: 900
+		delay: 900,
+		update: saveNotes,		/* Save notes when the sort order changes */
 	});
 	$("#list").disableSelection();
 });
 
 /*
- * Remove button event handler.
+ * Adds a note object to the note list.
  */
-$(".remove").click(function() {
-	$(this).parent().remove();
-})
-
-/*
- * Adds a note to the list.
- */
-$("#saveNoteBtn").click(function() {
-	var noteText = $("#noteText").val();
-	var noteTitle = $("#noteTitle").val();
-	if(noteText === '') {
-		return;
-	}
-
+function addNote(note) {
 	// create li
 	$item = $("<li></li>");
-	$title = $("<h1></h1>").text(noteTitle);
-	$content = $("<p></p>").text(noteText);
+	$title = $("<h1></h1>").text(note.title).addClass("title");
+	$content = $("<p></p>").text(note.content).addClass("content");
 	$button = $("<div></div>").addClass("button remove").text("Remove");
 
 	$item.append($title);
 	$item.append($content);
 	$item.append($button);
-	$("#list").prepend($item);
+	$("#list").append($item);
 
-	// we need to recreate trigger
+	// Add event handler for the remove button.
+	// Removes the list element containing the button.
 	$(".remove").click(function(){
 		$(this).parent().remove();
+		saveNotes();
 	});
+}
+
+/*
+ * Save note button event handler.
+ */
+$("#saveNoteBtn").click(function() {
+	var noteText = $("#noteText").val();
+	var noteTitle = $("#noteTitle").val();
+
+	// Don't save a note if there's no text.
+	if (noteText === '') {
+		return;
+	}
+
+	var note = {
+		title: noteTitle,
+		content: noteText
+	}
+
+	addNote(note);
+
+	saveNotes();
 
 	// Reset the inputs for the next note.
 	$("#noteText").val("");
