@@ -100,5 +100,5 @@ $("#saveNoteBtn").click(function() {
 	$("#noteTitle").val("");
 
 	// Transition back to the main page.
-	$.ui.loadContent("page1", false, true, "slide");
+	$.ui.loadContent("home", false, true, "slide");
 });
