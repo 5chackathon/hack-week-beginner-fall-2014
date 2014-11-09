@@ -1,10 +1,8 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Single View App template</title>
-<!--
-    This template can be used for simple application that has just a main view, for applications like Flash light app or Calculator app.
--->    
+    <title>Notebook App</title>
+
     <meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=0;" />
     
     <link rel="stylesheet" type="text/css" href="http://cdn.app-framework-software.intel.com/2.1/af.ui.css" />
@@ -12,8 +10,10 @@
 
     <link rel="stylesheet" type="text/css" href="css/new.css">
 
+    
     <script src="http://code.jquery.com/jquery-2.1.0.min.js"></script>
     <script type="text/javascript" src="js/jq.appframework.js"></script>
+
     <script type="text/javascript" charset="utf-8" src="http://cdn.app-framework-software.intel.com/2.1/appframework.ui.min.js"></script>
 
     <script>   
@@ -36,45 +36,23 @@
             <div>
                 <ul id="list">
                     <li>
-                        <span>
-                            <h1>Test</h1>
-                            <p>Some content</p>
-                        </span>
+                        <h1>Test</h1>
+                        <p>This is some content. blah blah blah blah.</p>
                         <div class="button remove">Remove</div>
                     </li>
                     <li>
-                         <span>
-                            <h1>Test</h1>
-                            <p>Some content</p>
-                        </span>
+                        <h1>Hello</h1>
+                        <p>Hello World</p>
                         <div class="button remove">Remove</div>
                     </li>
                     <li>
-                         <span>
-                            <h1>Test</h1>
-                            <p>Some content</p>
-                        </span>
+                        <h1>Test</h1>
+                        <p>Test 123</p>
                         <div class="button remove">Remove</div>
                     </li>
                     <li>
-                         <span>
-                            <h1>Test</h1>
-                            <p>Some content</p>
-                        </span>
-                        <div class="button remove">Remove</div>
-                    </li>
-                    <li>
-                         <span>
-                            <h1>Test</h1>
-                            <p>Some content</p>
-                        </span>
-                        <div class="button remove">Remove</div>
-                    </li>
-                    <li>
-                         <span>
-                            <h1>Test</h1>
-                            <p>Some content</p>
-                        </span>
+                        <h1>Test</h1>
+                        <p>Some content</p>
                         <div class="button remove">Remove</div>
                     </li>
                 </ul>
@@ -91,6 +69,7 @@
 </div>
     <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/jquery-ui.min.js"></script>
     <script type="text/javascript" src="js/touch-punch.min.js"></script>
+    <script type="text/javascript" src="js/app.js"></script>
     <script type="text/javascript">
         $(".remove").click(function(){
             $(this).parent().remove();
